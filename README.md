@@ -1,6 +1,6 @@
 # Udemy - Get started with .NET Core IdentityServer4
 
-## 1. Secure API with client_redentials grant type authentication flow
+## 1. Secure API with client_credentials grant type authentication flow
 
 ### Debugging projects
 
