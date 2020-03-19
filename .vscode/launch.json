@@ -5,6 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Console",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/BankOfDotNet.ConsoleClient/bin/Debug/netcoreapp3.1/BankOfDotNet.ConsoleClient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BankOfDotNet.ConsoleClient",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },{
             "name": "Identity Svr",
             "type": "coreclr",
             "request": "launch",
