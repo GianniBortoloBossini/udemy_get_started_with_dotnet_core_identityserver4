@@ -1,12 +1,13 @@
 # Udemy - Get started with .NET Core IdentityServer4
 
-## 1. Secure API with client_credentials grant type authentication flow
+## 2. Secure API with client_credentials and user involved request with resource owner password grant type authentication flows
 
 ### Debugging projects
 
 Using VSCode, start in order:
 - BankOfDotNet.IdentitySvr project
 - BankOfDotNet.API project
+- BankOfDotNet.ConsoleClient project
 
 ### Test calls
 
