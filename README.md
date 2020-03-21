@@ -1,6 +1,6 @@
 # Udemy - Get started with .NET Core IdentityServer4
 
-## 3. Secure website with implicit grant type authentication flow
+## 4. Secure api-based website with hybrid grant type authentication flow
 
 - Enrich your _dotnet cli_ with _identityserver4.templates_ executing the command 
     ```
@@ -25,8 +25,13 @@
     ```
     to add web login components to an existing Identiy Server 4 instance.
 
-## Debugging projects
+### Debugging projects
 Using VSCode, start in order:
 
 - BankOfDotNet.IdentitySvr project
+- BankOfDotNet.Api project
 - BankOfDotNet.MvcClient project
+
+### Test calls
+
+I used [Insomnia](https://insomnia.rest/) to attempt some requests to create customer. Import the _Insomnia_BankOfDotNet_requests.json_ configuration file available that you can find into the root folder from _Application > Preference > Data > Import Data > From File_.

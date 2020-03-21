@@ -26,6 +26,27 @@
             }
         },
         {
+            "name": "API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/BankOfDotNet.Api/bin/Debug/netcoreapp3.1/BankOfDotNet.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BankOfDotNet.Api",
+            "stopAtEntry": false,
+            // "serverReadyAction": {
+            //     "action": "openExternally",
+            //     "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5001/"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
             "name": "MVC",
             "type": "coreclr",
             "request": "launch",

@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using BankOfDotNet.MvcClient.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace BankOfDotNet.MvcClient.Controllers
 {
@@ -36,6 +39,20 @@ namespace BankOfDotNet.MvcClient.Controllers
             return View();
         }
 
+        [Authorize]
+        public async Task<IActionResult> Customers()
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var content = await client.GetStringAsync("http://localhost:5001/customers");
+
+            ViewBag.Json = JArray.Parse(content);
+            return View();
+        }
+
+        [Authorize]
         public async Task Logout() 
         {
             await HttpContext.SignOutAsync("Cookies");

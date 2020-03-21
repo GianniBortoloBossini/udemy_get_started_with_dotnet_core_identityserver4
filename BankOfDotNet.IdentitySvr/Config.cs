@@ -29,13 +29,37 @@ namespace BankOfDotNet.IdentitySvr
             };
         }
 
+        public static IEnumerable<ApiResource> GetAllApiResources() {
+            return new List<ApiResource> {
+                new ApiResource("bankOfDotNetApi", "Customer Api for BankOfDotNet")
+            };
+        }
+
         public static IEnumerable<Client> GetClients() {
             return new List<Client> {
-                // Implicit
+                // Client-credentials based grant type: 
+                // Can be used for
+                // - Machine-2-Machine
+                // - Trusted resources (within the company M2M communication)
+                new Client() {
+                    ClientId= "client",
+                    AllowedGrantTypes=GrantTypes.ClientCredentials,
+                    ClientSecrets = {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes={
+                        "bankOfDotNetApi"
+                    }
+                },
+                // Hybrid
                 new Client() {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+
+                    ClientSecrets = {
+                        new Secret("secret".Sha256())
+                    },
                     
                     RedirectUris = {
                         "http://localhost:5003/signin-oidc"
@@ -46,8 +70,10 @@ namespace BankOfDotNet.IdentitySvr
 
                     AllowedScopes = new List<string> {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
-                    }
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "bankOfDotNetApi"
+                    },
+                    AllowOfflineAccess = true
                 }
             };
         }

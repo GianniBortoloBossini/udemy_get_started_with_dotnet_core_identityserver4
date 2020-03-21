@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Authentication;
+
+@{
+    ViewData["Title"] = "Customers";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to list your customers.</p>
+
+<dt>
+    @foreach (var person in ViewBag.Json)
+    {
+        <dt><label><b>@person.lastName</b></label>, <label>@person.firstName</label></dt>
+        <dd>Id: @person.id</dd>
+    }
+</dl>
