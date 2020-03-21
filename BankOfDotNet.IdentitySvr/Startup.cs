@@ -16,9 +16,13 @@ namespace BankOfDotNet.IdentitySvr
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options => {
+                options.EnableEndpointRouting = false;
+            }); // Serve per il GrantType=Implicit
+
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                .AddInMemoryApiResources(Config.GetAllApiResources())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(Config.GetUsers());
         }
@@ -32,6 +36,9 @@ namespace BankOfDotNet.IdentitySvr
             }
 
             app.UseIdentityServer();
+
+            app.UseStaticFiles(); // Serve per il GrantType=Implicit
+            app.UseMvcWithDefaultRoute(); // Serve per il GrantType=Implicit
         }
     }
 }
