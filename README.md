@@ -11,4 +11,4 @@ Using VSCode, start in order:
 
 ### Test calls
 
-I used [Insomnia](https://insomnia.rest/) to attempt some requests. Import the _Insomnia_BankOfDotNet_requests.json_ configuration file available in the root folder from _Application > Preference > Data > Import Data > From File_.
+I used [Insomnia](https://insomnia.rest/) to attempt some requests. Import the _Insomnia_BankOfDotNet_requests.json_ configuration file available that you can find into the root folder from _Application > Preference > Data > Import Data > From File_.
