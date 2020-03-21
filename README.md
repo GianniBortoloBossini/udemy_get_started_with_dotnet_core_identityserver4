@@ -23,10 +23,10 @@
     ```
     dotnet new is4ui
     ```
-    to add web login components to an existing Identiy Server 4 instance-
+    to add web login components to an existing Identiy Server 4 instance.
 
 ## Debugging projects
 Using VSCode, start in order:
 
-BankOfDotNet.IdentitySvr project
-BankOfDotNet.MvcClient project
+- BankOfDotNet.IdentitySvr project
+- BankOfDotNet.MvcClient project
